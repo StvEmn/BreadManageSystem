@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: BreadManageSystem
+    url: jdbc:mysql://localhost:3306/BreadManageSystem?serverTimezone=UTC
+    username: root
+    password: LiuXiaoYan
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.zhanshi.xiaochengxu.entity
