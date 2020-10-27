@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="stylesheet" th:href="@{/css/swal.css}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" th:href="@{img/logo.jpg}">
+
+    <!-- Plugin styles -->
+    <link rel="stylesheet" th:href="@{/css/bundle.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+
+    <!-- App styles -->
+    <link rel="stylesheet" th:href="@{/css/app.min.css}" type="text/css">
+    <script>
+        function showPassword() {
+            const showPassword = document.getElementById("showPassword");
+            const passInput = document.getElementsByName("password")[0];
+            if (showPassword.className === "fa fa-eye-slash") {
+                passInput.type = "text"
+                showPassword.className = "fa fa-eye"
+            } else if (showPassword.className === "fa fa-eye") {
+                passInput.type = "password"
+                showPassword.className = "fa fa-eye-slash"
+            }
+        }
+
+    </script>
+</head>
+<body class="form-membership">
+
+<!-- begin::preloader-->
+<div class="preloader" style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="50px" height="50px" viewBox="0 0 128 128"
+         xml:space="preserve">
+        <rect x="0" y="0" width="100%" height="100%" fill="#FFFFFF"></rect>
+        <g>
+            <path d="M75.4 126.63a11.43 11.43 0 0 1-2.1-22.65 40.9 40.9 0 0 0 30.5-30.6 11.4 11.4 0 1 1 22.27 4.87h.02a63.77 63.77 0 0 1-47.8 48.05v-.02a11.38 11.38 0 0 1-2.93.37z"
+                  fill="#000000" fill-opacity="1"></path>
+            <animatetransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="500ms"
+                              repeatCount="indefinite">
+            </animatetransform>
+        </g>
+    </svg>
+</div>
+<!-- end::preloader -->
+<div class="form-wrapper">
+
+    <div id="logo" style="margin-bottom: 0">
+        <img class="logo" th:src="@{/img/logo.png}" alt="image">
+        <img class="logo-dark" th:src="@{/img/logo-dark.png}" src="../../img/logo-dark.png" alt="image">
+    </div>
+    <h5>登录</h5>
+    <form th:action="@{/user/login}" method="post">
+        <span class="alert alert-danger" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></span>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="账号" required="" autofocus="" name="username"
+                   autocomplete="off" style="margin-top: 17px">
+        </div>
+        <div style="color: "></div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="密码" required="" name="password" autocomplete="off">
+<!--            <i class="fa fa-eye-slash" id="showPassword" onclick="showPassword()" style="position: absolute;"></i>-->
+        </div>
+        <div class="form-group d-flex justify-content-between">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" checked="" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">记住账号</label>
+            </div>
+            <a href="http://demo.qfpffmp.cn/cssthemes6/sdgbse2fgdrsf/recover-password.html">重置密码</a>
+        </div>
+        <button class="btn btn-primary btn-block">登录</button>
+    </form>
+</div>
+
+</body>
+</html>
