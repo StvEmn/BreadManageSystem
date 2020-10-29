@@ -12,7 +12,7 @@ import java.sql.Date;
 public class Purchase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private String id;  //商品id
+    private int id;  //商品id
     private String goods_name;  //商品名
     private int quantity;   //商品数量
     private BigDecimal unit_price;  //单价
@@ -25,11 +25,11 @@ public class Purchase {
     private String tel; //电话
     private String certificate_number;  //合格证号
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

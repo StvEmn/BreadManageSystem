@@ -14,7 +14,7 @@ public class UserController {
     UserService userService;
 
     //查询所有用户
-    @GetMapping(value = "/allUser")
+    @GetMapping(value = "/user/allUser")
     private List<User> userList() {
         return userService.findAll();
     }
@@ -26,20 +26,20 @@ public class UserController {
     }
 
     //添加用户
-    @PostMapping("/addUser")
+    @PostMapping("/user/addUser")
     public int addUser(@RequestParam("username") String username,
                        @RequestParam("password") String password) {
         return userService.Add(username, password);
     }
 
     //删除用户
-    @DeleteMapping(value = "/deluser/{username}")
+    @DeleteMapping(value = "/user/deluser/{username}")
     public void deleteByUsername(@PathVariable("username") String username) {
         userService.deleteByUsername(username);
     }
 
     // 更新密码
-    @PutMapping("/user/{username}")
+    @PutMapping("/user/modify/{username}")
     public int userChangePassword(@PathVariable("username") String username,
                                   @RequestParam("Password") String password) {
         return userService.Add(username, password);

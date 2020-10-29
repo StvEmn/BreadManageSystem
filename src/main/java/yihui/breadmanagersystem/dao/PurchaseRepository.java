@@ -29,18 +29,23 @@ public interface PurchaseRepository extends JpaRepository<Purchase, Integer> {
 
     // =================================添加===================================
     @Query(value = "insert into pruchase(goods_name,quantity,unit_price,total_price,specification,production_time,purchase_time,supplier,address,tel,certificate_number) value(?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11)", nativeQuery = true)
-    public int Add(String goods_name, int quantity, BigDecimal unit_price, BigDecimal total_price, String specification, Date production_time, Date purchase_time, String supplier, String address, String tel, String certificate_number);
+    public int Add(String goods_name, int quantity, BigDecimal unit_price, BigDecimal total_price,
+                   String specification, Date production_time, Date purchase_time, String supplier,
+                   String address, String tel, String certificate_number);
     // =================================添加===================================
 
 
     // =================================更新===================================
-
+    @Query(value = "update pruchase set goods_name=?2,quantity=?3,unit_price=?4,total_price=?5,specification=?6,production_time=?7,purchase_time=?8,supplier=?9,address,tel=?10,certificate_number=?11 where id=?1", nativeQuery = true)
+    public int modify(int id,String goods_name, int quantity, BigDecimal unit_price, BigDecimal total_price,
+                      String specification, Date production_time, Date purchase_time, String supplier,
+                      String address, String tel, String certificate_number);
 
     // =================================更新===================================
 
-
     // =================================删除===================================
-
+    @Query(value = "delete from Purchase p where p.id= :id")
+    public int deleteById(int id);
     // =================================删除===================================
 
 
