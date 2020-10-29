@@ -1,25 +1,35 @@
-package yihui.breadmanagersystem.Entry;
+package yihui.breadmanagersystem.entity;
+
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Data
 public class User {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
-    private String id;
+    private Integer id;
     private String username;
     private String password;
 
     public User() {
     }
 
-    public String getId() {
+    public User(Integer id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
