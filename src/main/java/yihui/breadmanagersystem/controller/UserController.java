@@ -33,7 +33,7 @@ public class UserController {
     }
 
     //删除用户
-    @GetMapping(value = "/deluser/{username}")
+    @DeleteMapping(value = "/deluser/{username}")
     public void deleteByUsername(@PathVariable("username") String username) {
         userService.deleteByUsername(username);
     }
