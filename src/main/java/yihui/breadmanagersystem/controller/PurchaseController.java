@@ -12,8 +12,12 @@ import java.util.List;
 //进货
 @RestController
 public class PurchaseController {
-    @Autowired
+    final
     PurchaseService service;
+
+    public PurchaseController(PurchaseService service) {
+        this.service = service;
+    }
 
     //查询所有进货信息
     @GetMapping("/purchase/allInfo")

@@ -1,6 +1,5 @@
 package yihui.breadmanagersystem.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import yihui.breadmanagersystem.entity.User;
 import yihui.breadmanagersystem.service.UserService;
@@ -10,8 +9,12 @@ import java.util.List;
 @RestController
 public class UserController {
     //自动注入
-    @Autowired
+    final
     UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     //查询所有用户
     @GetMapping(value = "/user/allUser")
@@ -33,15 +36,15 @@ public class UserController {
     }
 
     //删除用户
-    @DeleteMapping(value = "/user/deluser/{username}")
-    public void deleteByUsername(@PathVariable("username") String username) {
-        userService.deleteByUsername(username);
+    @PostMapping(value = "/user/deluser")
+    public int deleteByUsername(@RequestParam("username") String username) {
+        return userService.deleteByUsername(username);
     }
 
     // 更新密码
-    @PutMapping("/user/modify/{username}")
-    public int userChangePassword(@PathVariable("username") String username,
-                                  @RequestParam("Password") String password) {
-        return userService.Add(username, password);
+    @PostMapping("/user/modify")
+    public int userChangePassword(@RequestParam("username") String username,
+                                  @RequestParam("password") String password) {
+        return userService.modify(username, password);
     }
 }

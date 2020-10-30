@@ -2,6 +2,7 @@ package yihui.breadmanagersystem.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -42,4 +43,7 @@ public class LoginService implements UserDetailsService {
             return new User(user.getUsername(), new BCryptPasswordEncoder().encode(user.getPassword()), auths);
         }
     }
+
+
+
 }

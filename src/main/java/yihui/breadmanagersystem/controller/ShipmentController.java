@@ -41,8 +41,7 @@ public class ShipmentController {
                        @RequestParam("total_price") BigDecimal total_price,
                        @RequestParam("specification") String specification,
                        @RequestParam("production_time") Date production_time,
-                       @RequestParam("purchase_time") Date delivery_time,
-                       ) {
+                       @RequestParam("purchase_time") Date delivery_time) {
         return service.Add(goods_name, quantity, unit_price, total_price,
                 specification, production_time, delivery_time);
     }

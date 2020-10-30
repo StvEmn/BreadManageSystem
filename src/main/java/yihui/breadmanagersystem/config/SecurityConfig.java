@@ -3,12 +3,20 @@ package yihui.breadmanagersystem.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationEventPublisher;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
+import java.util.List;
 
 /*
 基于配置类实现创建用户名和密码
@@ -16,8 +24,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 自定义实现类登录认证
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
+
+    public SecurityConfig(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -38,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/").permitAll()    //登录成功后跳转的路径
                 .and().authorizeRequests() //定义那些url访问需要认证，哪些访问不需要认证
                 //【"/","/hello","/login","/user/login"】这些不需要登录就可以访问
-                .antMatchers("/hello", "/login", "/user/login", "/static/**", "/img/**", "/font-awesome-4.7.0/**", "/css/**", "/js/**", "/icons/**").permitAll()
-                .anyRequest().authenticated();   //所有请求都可以访问
-                //.and().csrf().disable();   //关闭csrf的防护
+                .antMatchers("/login", "/user/login", "/static/**", "/img/**", "/font-awesome-4.7.0/**", "/css/**", "/js/**", "/icons/**").permitAll()
+                .anyRequest().authenticated()   //所有请求都可以访问
+                .and().csrf().disable();   //关闭csrf的防护
     }
 }
