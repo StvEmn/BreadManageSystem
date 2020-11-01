@@ -931,19 +931,16 @@
                             <div class="card">
                                 <div class="card-body text-center">
 
-                                    <h6 class="card-title d-flex align-items-start justify-content-between mb-0">
+                                    <h6 class="card-title d-flex align-items-start justify-content-between">
                                         <span style="margin-bottom: 20px">添加用户</span>
                                     </h6>
 
                                     <form th:action="@{/user/addUser}" method="post">
-                                        <label>
-                                            <input class="form-control" type="text" name="username"
-                                                   placeholder="请输入用户名" autocomplete="off">
-                                        </label>
-                                        <label>
-                                            <input class="form-control" type="text" name="password"
-                                                   placeholder="请输入密码" autocomplete="off">
-                                        </label>
+                                        <input class="form-control" type="text" name="username"
+                                               placeholder="请输入用户名" autocomplete="off">
+
+                                        <input class="form-control" type="text" name="password"
+                                               placeholder="请输入密码" autocomplete="off">
                                         <br>
                                         <label class="text-center">
                                             <button id="addUser" class="btn btn-primary btn-block"

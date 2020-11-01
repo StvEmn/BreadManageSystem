@@ -1,50 +1,70 @@
 package yihui.breadmanagersystem.controller;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import yihui.breadmanagersystem.Impl.UserServiceImpl;
 import yihui.breadmanagersystem.entity.User;
-import yihui.breadmanagersystem.service.UserService;
 
 import java.util.List;
 
 @RestController
 public class UserController {
     //自动注入
-    final
-    UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    @Autowired
+    UserServiceImpl userService;
 
     //查询所有用户
     @GetMapping(value = "/user/allUser")
     private List<User> userList() {
-        return userService.findAll();
+        return userService.selectAll();
     }
 
     //查询某个用户
     @GetMapping(value = "/user/{username}")
     public List<User> findByUsername(@PathVariable("username") String username) {
-        return userService.findByUsername(username);
+        return userService.selectByUsername(username);
     }
 
     //添加用户
     @PostMapping("/user/addUser")
-    public int addUser(@RequestParam("username") String username,
-                       @RequestParam("password") String password) {
-        return userService.Add(username, password);
+    public boolean addUser(User user) {
+        List<User> userList = userService.selectByUsername(user.getUsername());
+        if (userList != null) { //如果存在这个用户返回false
+            return false;
+        } else {
+            return userService.add(user);
+        }
     }
 
-    //删除用户
-    @PostMapping(value = "/user/deluser")
-    public int deleteByUsername(@RequestParam("username") String username) {
+    //删除用户(by id)
+    @GetMapping(value = "/user/deluser?id={id}")
+    public boolean deleteById(@PathVariable("id") Integer id) {
+        return userService.deleteById(id);
+    }
+
+    //删除用户(by username)
+    @GetMapping(value = "/user/deluser?username={username}")
+    public boolean deleteByUsername(@PathVariable("username") String username) {
         return userService.deleteByUsername(username);
     }
 
+
     // 更新密码
     @PostMapping("/user/modify")
-    public int userChangePassword(@RequestParam("username") String username,
-                                  @RequestParam("password") String password) {
-        return userService.modify(username, password);
+    public boolean userChangePassword(User user) {
+        List<User> userList = userService.selectByUsername(user.getUsername());
+        if (userList != null) {
+            User user1 = userList.get(0);
+            Integer id = (Integer) user1.getId();
+            user.setId(id);
+            return userService.update(user);
+        } else {
+            return false;
+        }
+
+
     }
 }
