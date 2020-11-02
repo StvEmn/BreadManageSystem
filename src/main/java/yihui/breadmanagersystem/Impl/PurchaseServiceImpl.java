@@ -40,6 +40,7 @@ public class PurchaseServiceImpl implements PurchaseMapper {
 
     @Override
     public List<Purchase> selectAll() {
+        System.out.println("Impl"+purchaseMapper.selectAll());
         return purchaseMapper.selectAll();
     }
 }

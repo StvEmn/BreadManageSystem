@@ -1,5 +1,6 @@
 package yihui.breadmanagersystem.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import yihui.breadmanagersystem.Impl.PurchaseServiceImpl;
@@ -8,6 +9,7 @@ import yihui.breadmanagersystem.entity.Purchase;
 import java.util.List;
 
 //进货
+@CrossOrigin
 @RestController
 public class PurchaseController {
     @Autowired
@@ -16,6 +18,7 @@ public class PurchaseController {
     //查询所有进货信息
     @GetMapping("/purchase/allInfo")
     public List<Purchase> select() {
+        System.out.println(purchaseService.selectAll());
         return purchaseService.selectAll();
     }
 

@@ -1,15 +1,12 @@
 package yihui.breadmanagersystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import yihui.breadmanagersystem.Impl.UserServiceImpl;
 import yihui.breadmanagersystem.entity.User;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class UserController {
     //自动注入

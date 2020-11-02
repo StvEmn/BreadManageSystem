@@ -12,112 +12,130 @@ import java.sql.Date;
 public class Purchase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int id;  //商品id
-    private String goods_name;  //商品名
-    private int quantity;   //商品数量
-    private BigDecimal unit_price;  //单价
-    private BigDecimal total_price;  //总价
-    private String specification;   //规格
-    private Date production_time;   //生产时间
-    private Date purchase_time;   //进货时间
-    private String supplier;    //供应商
-    private String address; //地址
-    private String tel; //电话
-    private String certificate_number;  //合格证号
+    private int Id;  //商品id
+    private String GoodsName;  //商品名
+    private int Quantity;   //商品数量
+    private double UnitPrice;  //单价
+    private double TotalPrice;  //总价
+    private String Specification;   //规格
+    private Date ProductionTime;   //生产时间
+    private Date PurchaseTime;   //进货时间
+    private String Supplier;    //供应商
+    private String Address; //地址
+    private String Tel; //电话
+    private String CertificateNumber;  //合格证号
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        Id = id;
     }
 
-    public String getGoods_name() {
-        return goods_name;
+    public String getGoodsName() {
+        return GoodsName;
     }
 
-    public void setGoods_name(String goods_name) {
-        this.goods_name = goods_name;
+    public void setGoodsName(String goodsName) {
+        GoodsName = goodsName;
     }
 
     public int getQuantity() {
-        return quantity;
+        return Quantity;
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        Quantity = quantity;
     }
 
-    public BigDecimal getUnit_price() {
-        return unit_price;
+    public double getUnitPrice() {
+        return UnitPrice;
     }
 
-    public void setUnit_price(BigDecimal unit_price) {
-        this.unit_price = unit_price;
+    public void setUnitPrice(double unitPrice) {
+        UnitPrice = unitPrice;
     }
 
-    public BigDecimal getTotal_price() {
-        return total_price;
+    public double getTotalPrice() {
+        return TotalPrice;
     }
 
-    public void setTotal_price(BigDecimal total_price) {
-        this.total_price = total_price;
+    public void setTotalPrice(double totalPrice) {
+        TotalPrice = totalPrice;
     }
 
     public String getSpecification() {
-        return specification;
+        return Specification;
     }
 
     public void setSpecification(String specification) {
-        this.specification = specification;
+        Specification = specification;
     }
 
-    public Date getProduction_time() {
-        return production_time;
+    public Date getProductionTime() {
+        return ProductionTime;
     }
 
-    public void setProduction_time(Date production_time) {
-        this.production_time = production_time;
+    public void setProductionTime(Date productionTime) {
+        ProductionTime = productionTime;
     }
 
-    public Date getPurchase_time() {
-        return purchase_time;
+    public Date getPurchaseTime() {
+        return PurchaseTime;
     }
 
-    public void setPurchase_time(Date purchase_time) {
-        this.purchase_time = purchase_time;
+    public void setPurchaseTime(Date purchaseTime) {
+        PurchaseTime = purchaseTime;
     }
 
     public String getSupplier() {
-        return supplier;
+        return Supplier;
     }
 
     public void setSupplier(String supplier) {
-        this.supplier = supplier;
+        Supplier = supplier;
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        Address = address;
     }
 
     public String getTel() {
-        return tel;
+        return Tel;
     }
 
     public void setTel(String tel) {
-        this.tel = tel;
+        Tel = tel;
     }
 
-    public String getCertificate_number() {
-        return certificate_number;
+    public String getCertificateNumber() {
+        return CertificateNumber;
     }
 
-    public void setCertificate_number(String certificate_number) {
-        this.certificate_number = certificate_number;
+    public void setCertificateNumber(String certificateNumber) {
+        CertificateNumber = certificateNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Purchase{" +
+                "Id=" + Id +
+                ", GoodsName='" + GoodsName + '\'' +
+                ", Quantity=" + Quantity +
+                ", UnitPrice=" + UnitPrice +
+                ", TotalPrice=" + TotalPrice +
+                ", Specification='" + Specification + '\'' +
+                ", ProductionTime=" + ProductionTime +
+                ", PurchaseTime=" + PurchaseTime +
+                ", Supplier='" + Supplier + '\'' +
+                ", Address='" + Address + '\'' +
+                ", Tel='" + Tel + '\'' +
+                ", CertificateNumber='" + CertificateNumber + '\'' +
+                '}';
     }
 }

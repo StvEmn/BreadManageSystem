@@ -27,6 +27,9 @@ public interface PurchaseMapper {
     List<Purchase> selectById(Integer id);
 
     //查询所有
-    @Select("select * from purchase")
+    /**
+     * @return
+     */
+    @Select("select * from purchase;")
     List<Purchase> selectAll();
 }
