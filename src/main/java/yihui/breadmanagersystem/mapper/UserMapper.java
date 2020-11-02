@@ -8,7 +8,6 @@ import yihui.breadmanagersystem.entity.User;
 import java.util.List;
 
 // 出货表
-@Repository
 @Mapper
 public interface UserMapper {
     // 查询用户

@@ -5,11 +5,9 @@ import org.springframework.stereotype.Service;
 import yihui.breadmanagersystem.entity.Purchase;
 import yihui.breadmanagersystem.mapper.PurchaseMapper;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 //进货商品信息
-@Transactional
 @Service
 public class PurchaseServiceImpl implements PurchaseMapper {
     @Autowired
@@ -40,7 +38,6 @@ public class PurchaseServiceImpl implements PurchaseMapper {
 
     @Override
     public List<Purchase> selectAll() {
-        System.out.println("Impl"+purchaseMapper.selectAll());
         return purchaseMapper.selectAll();
     }
 }

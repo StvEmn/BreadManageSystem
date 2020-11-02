@@ -44,7 +44,4 @@ public class ShipmentServiceImpl implements ShipmentMapper {
     public List<Shipment>  selectByGoods_name(String goods_name) {
         return shipmentMapper.selectByGoods_name(goods_name);
     }
-
-    // 查
-
 }

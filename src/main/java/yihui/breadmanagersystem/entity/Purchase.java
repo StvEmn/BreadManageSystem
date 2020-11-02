@@ -1,17 +1,9 @@
 package yihui.breadmanagersystem.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.math.BigDecimal;
 import java.sql.Date;
 
 //进货表实实体
-@Entity
 public class Purchase {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
     private int Id;  //商品id
     private String GoodsName;  //商品名
     private int Quantity;   //商品数量
