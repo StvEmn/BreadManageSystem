@@ -34,7 +34,6 @@ public class AuthenticationController {
             json.put("token", token);
             json.put("user", userInDataBase);
         }
-        System.out.println(json);
-        return json;
+        return json.toString();
     }
 }
