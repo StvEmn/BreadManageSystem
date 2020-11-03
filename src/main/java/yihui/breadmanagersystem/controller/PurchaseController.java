@@ -2,7 +2,7 @@ package yihui.breadmanagersystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import yihui.breadmanagersystem.Impl.PurchaseServiceImpl;
+import yihui.breadmanagersystem.service.PurchaseService;
 import yihui.breadmanagersystem.entity.Purchase;
 
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class PurchaseController {
     @Autowired
-    PurchaseServiceImpl purchaseService;
+    PurchaseService purchaseService;
 
     //查询所有进货信息
     @GetMapping("/purchase/allInfo")

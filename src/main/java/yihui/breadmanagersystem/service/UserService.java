@@ -1,33 +1,23 @@
-package yihui.breadmanagersystem.Impl;
+package yihui.breadmanagersystem.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import yihui.breadmanagersystem.entity.User;
 import yihui.breadmanagersystem.mapper.UserMapper;
 
-import java.util.List;
-
 @Service
-public class UserServiceImpl implements UserMapper {
+public class UserService implements UserMapper {
     @Autowired
     UserMapper userMapper;
 
-    // 查
-    @Override
-    public List<User> select(QueryWrapper<User> wrapper) {
-        return userMapper.select(wrapper);
-    }
-
-
     // 查（ByUsername）
     @Override
-    public List<User> selectByUsername(String username) {
+    public User selectByUsername(String username) {
         return userMapper.selectByUsername(username);
     }
 
     @Override
-    public List<User> selectAll() {
+    public User selectAll() {
         return userMapper.selectAll();
     }
 

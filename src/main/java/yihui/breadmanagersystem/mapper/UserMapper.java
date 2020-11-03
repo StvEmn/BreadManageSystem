@@ -10,17 +10,13 @@ import java.util.List;
 // 出货表
 @Mapper
 public interface UserMapper {
-    // 查询用户
-    @Select("select * from user")
-    List<User> select(QueryWrapper<User> wrapper);
-
     // 根据用户名查询用户
     @Select("select * from user where username =#{username}")
-    List<User> selectByUsername(String username);
+    User selectByUsername(String username);
 
     // 查询所有
     @Select("select * from user")
-    List<User> selectAll();
+    User selectAll();
 
     // 添加用户
     @Insert("insert into user(username, password) values(#{username}, #{password})")

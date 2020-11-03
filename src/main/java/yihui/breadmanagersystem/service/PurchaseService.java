@@ -1,4 +1,4 @@
-package yihui.breadmanagersystem.Impl;
+package yihui.breadmanagersystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.util.List;
 
 //进货商品信息
 @Service
-public class PurchaseServiceImpl implements PurchaseMapper {
+public class PurchaseService implements PurchaseMapper {
     @Autowired
     PurchaseMapper purchaseMapper;
 

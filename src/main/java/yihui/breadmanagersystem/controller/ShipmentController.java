@@ -2,7 +2,7 @@ package yihui.breadmanagersystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import yihui.breadmanagersystem.Impl.ShipmentServiceImpl;
+import yihui.breadmanagersystem.service.ShipmentService;
 import yihui.breadmanagersystem.entity.Shipment;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class ShipmentController {
     @Autowired
-    ShipmentServiceImpl service;
+    ShipmentService service;
 
     //查询所有进货信息
     @GetMapping("/shipment/all")

@@ -1,4 +1,4 @@
-package yihui.breadmanagersystem.Impl;
+package yihui.breadmanagersystem.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,7 @@ import yihui.breadmanagersystem.mapper.ShipmentMapper;
 import java.util.List;
 
 @Service
-public class ShipmentServiceImpl implements ShipmentMapper {
+public class ShipmentService implements ShipmentMapper {
     @Autowired
     ShipmentMapper shipmentMapper;
 
